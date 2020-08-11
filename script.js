@@ -48,7 +48,6 @@ searchButton.on("click", function(event){
       li.text(cities);
       searchHistoryEl.prepend(li);
 
-      // searchInputBox.val( citiesArray[index] );
     }
   }
 //   if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
