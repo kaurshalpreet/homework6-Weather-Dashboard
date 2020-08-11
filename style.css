@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    height: 150px;
+    background-color: black;
+    margin-top: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header h1 {
+    margin: 0;
+    padding-top: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
+    height: 100%;
+}
+
+.search {
+    padding: 25px;
+    background-color: gainsboro;
+    width: 25%;
+}
+
+.forecast {
+    margin-top: 25px;
+    border: 1px solid black;;
+    margin-left: 5%;
+    border-radius: 10px;
+    padding-left: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-2 {
+    width: 70%;
+} 
+
+.container-3 h1 {
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    display: flex;
+    line-height: 50%;
+    margin: 5px 5px 5px 0px;
+}
+
+.row * {
+    margin-right: 5px;
+}
+
+p {
+    font-size: larger;
+
+}
+.searchInputBox {
+    height: 40px;
+    width: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.container-3 h1 {
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+}
+
+.searchButton {
+    width: 40px;
+    background-color: #6cafeb;
+    border-radius: 5px;
+    border: none;
+}
+
+.five-day-card {
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #6cafeb;
+    width: 500px;
+}
+
+
+
+li:first-child {
+    height: 100%;
+    font-size: larger;
+    background-color: white;
+    border: solid 1px #cecfd2;
+    border-radius: 6px 6px 0px 0px;
+    padding: 12px 5px 12px 15px;
+    list-style: none;
+}
+
+li {
+    height: 100%;
+    font-size: larger;
+    background-color: white;
+    border: solid 1px #cecfd2;
+    border-radius: 0px 0px 0px 0px;
+    padding: 12px 5px 12px 15px;
+    list-style: none;
+}
+
+li:last-child {
+    height: 100%;
+    font-size: larger;
+    background-color: white;
+    border: solid 1px #cecfd2;
+    border-radius: 0px 0px 6px 6px;
+    padding: 12px 5px 12px 15px;
+    list-style: none;
+}
+
+.red {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.yellow {
+    background-color: yellow;
+    color: white;
+    border-radius: 5px;
+}
+
+.orange {
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+}
+
+.green {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}

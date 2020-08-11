@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/bc54d37597.js" crossorigin="anonymous"></script>
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="header"><h1>Weather Dashboard</h1></header>
+
+    <div class="container">
+
+        <aside class="search">
+            <div class="row">
+                <h1>Search for a City:</h1>
+            </div>
+
+            <div class="row">
+                <input type="text" class="searchInputBox" placeholder="Fairfield">
+
+                <button class="searchButton fas fa-search-location"></button>
+                
+            </div>
+            <div class="searchHistory"></div>
+        </aside>
+
+        <div class="container-2">
+
+            <div class="forecast">
+                <div class="row">
+                    <h1 class="cityName">City Name</h1>
+                    <h1 class="currentDate"></h1>
+                    <img class="weatherIcon"></img>
+                </div>
+                <div>
+                    <p class="temperature">Temperature</p>
+                    
+                    <p class="humidity">Humidity</p>
+                  
+                    <p class="windSpeed">Wind Speed</p>
+                    
+                    <p class="uvIndex">UV Index</p>
+                </div>
+            </div>
+                
+            <div class="container-3">
+                <h1>5-Day Forecast:</h1>
+                <div class="card-row"></div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<script src="script.js"></script>
+</html>
