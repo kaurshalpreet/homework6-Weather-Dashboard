@@ -96,7 +96,7 @@ searchButton.on("click", function(event){
       /**********************************************************/
 
     
-      var queryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
+      var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
       $.ajax({
         url: queryURL,
         method: "GET"
@@ -125,7 +125,7 @@ searchButton.on("click", function(event){
     });
 
         cardRow.empty();
-        var queryUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey + "&units=imperial";
+        var queryUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey + "&units=imperial";
         $.ajax({
             url: queryUrl,
             method: "GET"
@@ -143,7 +143,7 @@ searchButton.on("click", function(event){
             var cardIcon = $("<img>").attr("class", "weatherIcon");
             var cardTemp = $("<p>").attr("class", "card-text");
             var cardHumidity = $("<p>").attr("class", "card-text");
-            var weatherIcon = "https:///openweathermap.org/img/w/" + icon + ".png";
+            var weatherIcon = "https://openweathermap.org/img/w/" + icon + ".png";
         
             cardRow.append(fiveDivs);
             cardDate.text(date);
