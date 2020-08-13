@@ -13,13 +13,44 @@ var windSpeedEl = $(".windSpeed");
 var uvIndexEl = $(".uvIndex");
 var cardRow = $(".card-row");
 
+var cityName
 var citiesArray = [];
 
 var dateDisplay = moment().format('MM/D/YYYY');
 
-searchButton.on("click", function(event){
-  event.preventDefault();
-  var cityName = searchInputBox.val();
+
+//   // This function when called will store the text in an array in the input box in local storage.
+function storedInput() {
+      localStorage.setItem("StoredCities", JSON.stringify(citiesArray));
+}
+
+
+function renderCities() {
+  searchHistoryEl.empty();
+  storedCities = JSON.parse(localStorage.getItem("StoredCities"));
+
+  if (storedCities !== null) {
+    citiesArray = storedCities;
+  console.log(citiesArray)
+  }
+
+  for (var i = 0; i < citiesArray.length; i++) {
+    var cities = citiesArray[i];
+
+    var li = $("<li>").attr("class", "historyEntry");
+    li.text(cities);
+    li.on("click", function(event) {
+      cityName = li.text;
+      callWeather();
+    });
+    searchHistoryEl.prepend(li);
+
+  }
+}
+
+
+searchButton.on("click", function(event) {
+  cityName = searchInputBox.val();
 
   if (cityName  === "") {
     alert("You must enter a city");
@@ -29,47 +60,20 @@ searchButton.on("click", function(event){
 
   citiesArray.push(cityName);
   searchInputBox.value = "";
+  console.log(citiesArray)
+  callWeather()
 
-  storeCities();
+});
+
+
+
+function callWeather(){
+  
+
+  storedInput();
 
   renderCities();
-   
-  function storeCities() {
-    localStorage.setItem("searchHistory", JSON.stringify(citiesArray));
-  }
 
-  function renderCities() {
-    searchHistoryEl.empty();
-    var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory"));
-    for (var i = 0; i < citiesArray.length; i++) {
-      var cities = citiesArray[i];
-  
-      var li = $("<li>").attr("class", "historyEntry");
-      li.text(cities);
-      searchHistoryEl.prepend(li);
-
-    }
-  }
-//   if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
-//     console.log("searchHistory not found")
-// }else{
-//     console.log("searchHistory loaded into searchHistoryArr");
-//     renderSearchHistory();
-// }
-  
-  
-//   localStorage.setItem("searchHistory", JSON.stringify(citiesArray));
-
-//   function renderSearchHistory(cityName) {
-//     searchHistoryEl.empty();
-//     var citiesArray = JSON.parse(localStorage.getItem("searchHistory"));
-//     for (let i = 0; i < citiesArray.length; i++) {
-//         // We put newListItem in loop because otherwise the text of the li element changes, rather than making a new element for each array index
-//         let newListItem = $("<li>").attr("class", "historyEntry");
-//         newListItem.text(citiesArray[i]);
-//         searchHistoryEl.prepend(newListItem);
-//     }
-// }
 
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey +"&units=imperial";
   $.ajax({
@@ -154,20 +158,10 @@ searchButton.on("click", function(event){
           }
 
         });
-
-        
-
-       
-
-
-
-
-
-
-
-
   
-});
+};
+
+renderCities();
 
 
 
