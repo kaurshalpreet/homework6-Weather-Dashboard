@@ -33,7 +33,7 @@ When you open the page, you will get a search input box to put the name of the c
 
 ---
 
-When you view current weather conditions for that city, You wll be able to see the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index. You will also see the future weather condition for that day that will display the data for next 5 days, the date, an icon representation of weather conditions, the temperature, and the humidity.
+When you view current weather conditions for that city, You will be able to see the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index. You will also see the future weather condition for that day that will display the data for next 5 days, the date, an icon representation of weather conditions, the temperature, and the humidity.
 
 ![Page Display](./assets/pageDisplay.png)
 
@@ -51,7 +51,7 @@ When you click on a city in the search history, then you are again presented wit
 
 ---
 
-When you open the weather dashboard, then you are presented with the last searched city forecast.
+When you open or reload the weather dashboard, then you are presented with the last searched city forecast.
 
 ![Refresh](./assets/refresh.gif)
 

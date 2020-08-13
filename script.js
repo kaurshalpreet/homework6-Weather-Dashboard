@@ -19,7 +19,7 @@ var citiesArray = [];
 var dateDisplay = moment().format('MM/D/YYYY');
 
 
-//   // This function when called will store the text in an array in the input box in local storage.
+// This function when called will store the text in an array in the input box in local storage.
 function storedInput() {
       localStorage.setItem("StoredCities", JSON.stringify(citiesArray));
 }
@@ -39,27 +39,44 @@ function renderCities() {
 
     var li = $("<li>").attr("class", "historyEntry");
     li.text(cities);
-    li.on("click", function(event) {
-      cityName = li.text;
-      callWeather();
-    });
     searchHistoryEl.prepend(li);
+
+
 
   }
 }
 
 
+
+searchHistoryEl.on("click", function(event) {
+  var cityClicked = event.target;
+  cityName = cityClicked.textContent;
+  callWeather();
+});
+
+
+
 searchButton.on("click", function(event) {
-  cityName = searchInputBox.val();
+  // cityName = searchInputBox.val();
+
+  var uppercaseFirstLetter = searchInputBox.val().charAt(0).toUpperCase();
+  var stringWithoutFirstLetter = searchInputBox.val().slice(1);
+
+  cityName = uppercaseFirstLetter + stringWithoutFirstLetter
 
   if (cityName  === "") {
     alert("You must enter a city");
     return;
   }
 
+  if (citiesArray.includes(cityName)) {
+    alert("This City already exist in the Search History");
+    return;
+  }
+
 
   citiesArray.push(cityName);
-  searchInputBox.value = "";
+  searchInputBox.val("");
   console.log(citiesArray)
   callWeather()
 
@@ -136,7 +153,7 @@ function callWeather(){
         }).then(function(response) {
           console.log(response)
 
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < 40; i += 8) {
             var date = response.list[i].dt_txt.substring(0, 10);
             var icon = response.list[i].weather[0].icon;
             var temp = response.list[i].main.temp;
@@ -162,6 +179,11 @@ function callWeather(){
 };
 
 renderCities();
+$(window).on('load', function(){
+  cityName = citiesArray[citiesArray.length-1];
+  console.log(cityName)
+  callWeather();
+});
 
 
 
